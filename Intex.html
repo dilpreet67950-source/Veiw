@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Instagram Login Demo</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #fafafa;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 350px;
+    background: white;
+    border: 1px solid #dbdbdb;
+    padding: 40px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: bold;
+    font-family: cursive;
+    margin-bottom: 35px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 60px;
+}
+
+.show {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 7px;
+    background: #0095f6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1877f2;
+}
+
+.or {
+    margin: 25px 0;
+    color: #777;
+    font-size: 13px;
+}
+
+.demo {
+    margin-top: 20px;
+    color: #0095f6;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.message {
+    margin-top: 15px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">Instagram</div>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Phone number, username, or email"
+    >
+
+    <div class="password-box">
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+        <span class="show" onclick="showPassword()">Show</span>
+    </div>
+
+    <button onclick="demoLogin()">Log in</button>
+
+    <div class="or">OR</div>
+
+    <div class="demo" onclick="demoMessage()">
+        Log in with demo account
+    </div>
+
+    <div class="message" id="message"></div>
+
+</div>
+
+<script>
+
+function showPassword() {
+    const password = document.getElementById("password");
+    const show = document.querySelector(".show");
+
+    if (password.type === "password") {
+        password.type = "text";
+        show.innerText = "Hide";
+    } else {
+        password.type = "password";
+        show.innerText = "Show";
+    }
+}
+
+function demoLogin() {
+    document.getElementById("message").innerText =
+        "Demo only — no real Instagram login is performed.";
+}
+
+function demoMessage() {
+    document.getElementById("message").innerText =
+        "Demo account selected.";
+}
+
+</script>
+
+</body>
+</html>
